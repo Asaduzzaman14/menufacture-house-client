@@ -8,6 +8,7 @@ import Review from './Components/Home/Review';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Signup from './Components/Login/Signup';
+import RequirAuth from './Components/Login/RequirAuth';
 
 function App() {
   return (
@@ -15,9 +16,9 @@ function App() {
       <Navbar></Navbar>
 
       <Routes>
-        <Route path="/home" element={<Home></Home>}> </Route>
+        <Route path="/" element={<Home></Home>}> </Route>
 
-        <Route path="/about" element={<About></About>}> </Route>
+        <Route path="/about" element={<RequirAuth> <About></About></RequirAuth>}> </Route>
         <Route path="/review" element={<Review></Review>}> </Route>
 
 
