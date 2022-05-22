@@ -4,15 +4,17 @@
         "name": "Thire4e black jandels pillers on browen serface",
         "img": "",
         "price": 99,
-        "quantity": 3464,
+        "minOrderQuantity": 100,
+        "availableQuantity": 3464,
         "desc": "A bunch of m4 nuts for threaded screws!"
     },
     {
-        "id": 11,
+        "_id": 11,
         "name": "Thire4e black jandels pillers on browen serface",
         "img": "",
         "price": 99,
-        "quantity": 4654,
+        "minOrderQuantity": 100,
+        "availableQuantity": 4654,
         "desc": "A bunch of m4 nuts for threaded screws!"
     },
     {
@@ -20,7 +22,8 @@
         "name": "Thire4e black jandels pillers on browen serface",
         "img": "",
         "price": 99,
-        "quantity": 4654,
+        "minOrderQuantity": 100,
+        "availableQuantity": 4654,
         "desc": "A bunch of m4 nuts for threaded screws!"
     },
     {
@@ -28,7 +31,8 @@
         "name": "Thire4e black jandels pillers on browen serface",
         "img": "",
         "price": 99,
-        "quantity": 3464,
+        "minOrderQuantity": 100,
+        "availableQuantity": 3464,
         "desc": "A bunch of m4 nuts for threaded screws!"
     },
     {
@@ -36,7 +40,8 @@
         "name": "Thire4e black jandels pillers on browen serface",
         "img": "",
         "price": 99,
-        "quantity": 345,
+        "minOrderQuantity": 100,
+        "availableQuantity": 345,
         "desc": "A bunch of m4 nuts for threaded screws!"
     },
     {
@@ -44,7 +49,8 @@
         "name": "Thire4e black jandels pillers on browen serface",
         "img": "",
         "price": 99,
-        "quantity": 344,
+        "minOrderQuantity": 100,
+        "availableQuantity": 344,
         "desc": "A bunch of m4 nuts for threaded screws!"
     },
     {
@@ -52,7 +58,8 @@
         "name": "Thire4e black jandels pillers on browen serface",
         "img": "",
         "price": 99,
-        "quantity": 654,
+        "minOrderQuantity": 100,
+        "availableQuantity": 654,
         "desc": "A bunch of m4 nuts for threaded screws!"
     }
 ]
