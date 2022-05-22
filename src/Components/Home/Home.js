@@ -14,8 +14,8 @@ const Home = () => {
                 <Parts></Parts>
 
 
-                <Summery></Summery>
                 <Reviews></Reviews>
+                <Summery></Summery>
             </div>
 
 

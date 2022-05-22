@@ -19,7 +19,15 @@ const Navbar = () => {
         <li><Link className='rounded-lg' to='/about'>About</Link></li>
         <li><Link className='rounded-lg' to='/review'>Review</Link></li>
         <li><Link className='rounded-lg' to='/contruct'>Contruct Us</Link></li>
-        <li>{user ? <button onClick={logout} className='btn btn-ghost' >Sign out</button> : <Link to='login'>Login</Link>}</li>
+
+
+        {user && <li><Link className='rounded-lg' to='/profile'>Profile</Link></li>}
+
+        <li>{user ? <>
+            <Link to='/dashborad' className='btn btn-ghost'>Dashborad</Link>
+            <button onClick={logout} className='btn btn-ghost' >Sign out</button>
+        </>
+            : <Link to='login'>Login</Link>}</li>
 
 
     </>
