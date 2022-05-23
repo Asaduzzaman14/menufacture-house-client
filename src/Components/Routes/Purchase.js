@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 
 const Purchase = () => {
     const { id } = useParams()
-
-
     const [tool, setTool] = useState([])
+    const { name, _id, img, price, desc, minOrderQuantity, availableQuantity } = tool
+    const [minQuantity, setMinQuantity] = useState(minOrderQuantity)
+
+    const [inputValue, setInputValue] = useState(0)
 
     useEffect(() => {
         fetch(`http://localhost:5000/tool/${id}`)
@@ -16,11 +19,12 @@ const Purchase = () => {
 
     }, [id])
 
-    // if () {
-    //     return <Loading></Loading>
-    // }
+    const handelChange = (e) => {
+        e.preventDefault()
+        const curentValue = e.target.value
+        setInputValue(curentValue)
+    }
 
-    const { name, _id, img, price, desc, minOrderQuantity, availableQuantity } = tool
 
     return (
         <div className="card d-flex lg:flex-row w-full bg-base-100  p-2 mx-5 border-2 border-red-500 mt-20">
@@ -34,8 +38,25 @@ const Purchase = () => {
 
                 <p>Available Quantity: {availableQuantity}</p>
                 <p>Min Order Quantity: {minOrderQuantity}</p>
+                <form onChange={handelChange}>
+                    <label class="input-group input-group-sm ">
+                        <button onClick={() => setMinQuantity(minQuantity - 1)} className='btn'>Decrement</button>
+                        <input
+                            value={minOrderQuantity?.value}
+                            type="number" id="quantity"
+                            name="quantity"
+                            min={minOrderQuantity}
+                            max={availableQuantity}
+                            step="1"
+
+                        />
+                        <button onClick={() => setMinQuantity(minQuantity + 1)} className='btn'>Increment</button>
+
+                    </label>
+                </form>
+
                 <div className="card-actions">
-                    <Link to={`/ purchase / ${_id} `} className="btn btn-primary">Order</Link>
+                    {<button className="btn btn-secondary">Order</button>}
                 </div>
             </div>
         </div>

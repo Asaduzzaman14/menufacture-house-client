@@ -42,11 +42,17 @@ const AddReview = () => {
                 className='text-center py-12 mt-36'>
                 <h2 className=' text-3xl mb-3'>ADD YOUR REVIEW</h2>
                 <form onSubmit={handelFormSubmit}>
-                    <input type="text" name='userName' placeholder="name" className="input input-bordered input-md w-full max-w-sm mb-4" />
+                    <input type="text" name='userName' placeholder="name" className="input input-bordered input-md w-full max-w-sm mb-4" required />
                     <br />
                     <input type="text" name='userEmail' value={user.email} className="input input-bordered input-md w-full max-w-sm mb-4" />
                     <br />
-                    <textarea name='review' className=" textarea textarea-primary w-full max-w-sm mb-6" placeholder="Your Review"></textarea>
+                    <input type="number" name='rattings' className=" input input-bordered input-md w-full max-w-sm mb-4"
+                        pattern="[1-5]{1}" title="Three letter country code"
+                        required
+                    />
+
+                    <br />
+                    <textarea name='review' className=" textarea textarea-primary w-full max-w-sm mb-6" placeholder="Your Review" required></textarea>
                     <br />
                     <input type="submit" className="input bg-primary font-bold text-lg text-white input-bordered input-md w-full max-w-xs mb-4" />
 

@@ -15,6 +15,9 @@ import Blogs from './Components/Home/Blogs';
 import Users from './Components/Dashboard/Users';
 import MyOrder from './Components/Dashboard/MyOrder';
 import AddReview from './Components/Dashboard/AddReview';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import AddProducts from './Components/Dashboard/AddProducts';
 
 function App() {
   return (
@@ -37,6 +40,7 @@ function App() {
           <Route path="dashborad/addreview" element={<AddReview></AddReview>}> </Route>
           <Route path="dashborad/orders" element={<MyOrder></MyOrder>}> </Route>
           <Route path="dashborad/users" element={<Users></Users>}> </Route>
+          <Route path="dashborad/addproducts" element={<AddProducts></AddProducts>}> </Route>
 
 
         </Route>
@@ -49,6 +53,7 @@ function App() {
 
 
       </Routes>
+      <ToastContainer></ToastContainer>
     </div >
   );
 }

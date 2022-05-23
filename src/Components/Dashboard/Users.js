@@ -15,20 +15,6 @@ const Users = () => {
         return <Loading></Loading>
     }
 
-    // const [users, setUsers] = useState([])
-
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/user')
-    //         .then(res => {
-    //             console.log(res)
-    //             res.json()
-    //         })
-    //         .then(data => setUsers(data))
-
-    // }, [])
-    // if (!users) {
-    //     <Loading></Loading>
-    // }
 
 
 
@@ -52,6 +38,7 @@ const Users = () => {
                                 key={user._id}
                                 user={user}
                                 index={index}
+                                refetch={refetch}
                             ></User>
                             )
                         }
