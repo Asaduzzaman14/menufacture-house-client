@@ -20,12 +20,12 @@ const Login = () => {
     const { register, formState: { errors }, handleSubmit, getValues } = useForm();
     const emailvalue = getValues("email");
 
+    const [token] = useToken(user || googleUser)
 
     let signInError;
     const navigate = useNavigate()
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
-    const [token] = useToken(user || googleUser)
 
     useEffect(() => {
         if (token) {
@@ -46,9 +46,6 @@ const Login = () => {
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)
-
-        navigate('/')
-
     };
 
 
