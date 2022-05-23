@@ -17,9 +17,17 @@ const AddReview = () => {
             review: e.target.review.value,
 
         }
-        console.log('this is user review', userReview);
-
-
+        fetch('http://localhost:5000/review', {
+            "method": "POST",
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(userReview)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success review post', data)
+            })
     }
 
 
