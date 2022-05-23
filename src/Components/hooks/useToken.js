@@ -9,8 +9,12 @@ const useToken = user => {
 
     useEffect(() => {
         const email = user?.user?.email;
+        const name = user?.user?.displayName;
 
-        const currentuser = { email: email }
+        const currentuser = {
+            email: email,
+            name: name
+        }
 
         if (email) {
             console.log(email);
@@ -22,7 +26,12 @@ const useToken = user => {
                 body: JSON.stringify(currentuser)
             })
                 .then(res => res.json())
-                .then(data => console.log('data inside use token', data))
+                .then(data => {
+                    console.log('data inside useToken', data);
+                    const accessToken = data.token;
+                    localStorage.setItem('accessToken', accessToken);
+                    setToken(accessToken);
+                })
         }
 
 
