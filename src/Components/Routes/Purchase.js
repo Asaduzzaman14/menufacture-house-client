@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
+import Loading from '../Shared/Loading';
 
 const Purchase = () => {
     const { id } = useParams()
 
-    const [parts, setParts] = useState([])
+
+    const [tool, setTool] = useState([])
 
     useEffect(() => {
-        const url = `http://localhost:5000/parts`
-        fetch(url)
+        fetch(`http://localhost:5000/tool/${id}`)
             .then(res => res.json())
-            .then(data => setParts(data))
-    }, [])
-    const myPart = parts.find(part => part._id === id)
-    console.log('this is your product', myPart?._id);
-    const { name, _id, img, price, desc, minOrderQuantity, availableQuantity } = myPart
+            .then(data => setTool(data))
+
+    }, [id])
+
+    // if () {
+    //     return <Loading></Loading>
+    // }
+
+    const { name, _id, img, price, desc, minOrderQuantity, availableQuantity } = tool
 
     return (
         <div class="card d-flex lg:flex-row w-full bg-base-100  p-2 mx-5 border-2 border-red-500 mt-20">
@@ -29,7 +35,7 @@ const Purchase = () => {
                 <p>Available Quantity: {availableQuantity}</p>
                 <p>Min Order Quantity: {minOrderQuantity}</p>
                 <div class="card-actions">
-                    <Link to={`/purchase/${_id}`} class="btn btn-primary">Order</Link>
+                    <Link to={`/ purchase / ${_id} `} class="btn btn-primary">Order</Link>
                 </div>
             </div>
         </div>

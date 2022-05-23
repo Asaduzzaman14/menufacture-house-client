@@ -17,7 +17,7 @@ const Navbar = () => {
     const menuItem = <>
         <li><Link className='rounded-lg' to='/home'>Home</Link></li>
         <li><Link className='rounded-lg' to='/about'>About</Link></li>
-        <li><Link className='rounded-lg' to='/review'>Review</Link></li>
+        <li><Link className='rounded-lg' to='/blogs'>Blogs</Link></li>
         <li><Link className='rounded-lg' to='/contruct'>Contruct Us</Link></li>
 
 
@@ -44,7 +44,7 @@ const Navbar = () => {
                         {menuItem}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">MenuFacturer</a>
+                <span className="btn btn-ghost normal-case text-xl">MenuFacturer</span>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

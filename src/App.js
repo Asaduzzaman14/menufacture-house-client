@@ -11,6 +11,10 @@ import Purchase from './Components/Routes/Purchase';
 import NotFound from './Components/Shared/NotFound';
 import Profile from './Components/Dashboard/Profile';
 import Dashborad from './Components/Dashboard/Dashborad';
+import Blogs from './Components/Home/Blogs';
+import Users from './Components/Dashboard/Users';
+import MyOrder from './Components/Dashboard/MyOrder';
+import AddReview from './Components/Dashboard/AddReview';
 
 function App() {
   return (
@@ -20,15 +24,19 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}> </Route>
         <Route path="/home" element={<Home></Home>}> </Route>
-        <Route path="/purchase/:id" element={<Purchase></Purchase>}> </Route>
+        <Route path="/blogs" element={<RequirAuth><Blogs></Blogs></RequirAuth>}> </Route>
 
+
+        <Route path="/purchase/:id" element={<Purchase></Purchase>}> </Route>
         <Route path="/about" element={<RequirAuth> <About></About></RequirAuth>}> </Route>
 
 
         <Route path="/dashborad" element={<RequirAuth><Dashborad></Dashborad></RequirAuth>}>
 
-          <Route path="" element={<Profile></Profile>}> </Route>
-          <Route path="/review" element={<Review></Review>}> </Route>
+          <Route index element={<Profile></Profile>}> </Route>
+          <Route path="dashborad/addreview" element={<AddReview></AddReview>}> </Route>
+          <Route path="dashborad/orders" element={<MyOrder></MyOrder>}> </Route>
+          <Route path="dashborad/users" element={<Users></Users>}> </Route>
 
 
         </Route>
