@@ -2,10 +2,13 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useAdmin from '../hooks/useAdmin';
 
 const Dashborad = () => {
-
     const [user] = useAuthState(auth)
+    const [admin] = useAdmin(user)
+
+
     return (
         <div>
             <div className="drawer drawer-mobile">
@@ -22,13 +25,13 @@ const Dashborad = () => {
                     <ul className="bg-secondary text-white  font-semibold menu p-4 overflow-y-auto w-48  font-serif ">
 
                         {/* <!-- Sidebar content here --> */}
-                        <li><Link to=''>Profile</Link></li>
+                        <li><Link to=''>Protfolio</Link></li>
                         <li><Link to='dashborad/addreview'>Add Review</Link></li>
 
                         <li><Link to='dashborad/orders'>My Orders</Link></li>
-                        <li><Link to='dashborad/users'>ALL USERS</Link></li>
 
                         <li><Link to='dashborad/addproducts'>Add Products</Link></li>
+                        {admin && <li><Link to='dashborad/users'>ALL USERS</Link></li>}
 
                     </ul>
 

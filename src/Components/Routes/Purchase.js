@@ -3,14 +3,22 @@ import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
 const Purchase = () => {
     const { id } = useParams()
-    const [tool, setTool] = useState([])
-    const { name, _id, img, price, desc, minOrderQuantity, availableQuantity } = tool
-    const [minQuantity, setMinQuantity] = useState(minOrderQuantity)
+    const [user] = useAuthState(auth)
 
-    const [inputValue, setInputValue] = useState(0)
+    const [tool, setTool] = useState([])
+
+    const { name, img, price, desc, minOrderQuantity, availableQuantity } = tool
+    console.log('ttttttttt', minOrderQuantity);
+
+    const [minQuantity, setMinQuantity] = useState(minOrderQuantity)
+    const [maxQuantity, maxMinQuantity] = useState(availableQuantity)
+    console.log('hello', minQuantity);
 
     useEffect(() => {
         fetch(`http://localhost:5000/tool/${id}`)
@@ -19,10 +27,28 @@ const Purchase = () => {
 
     }, [id])
 
-    const handelChange = (e) => {
-        e.preventDefault()
-        const curentValue = e.target.value
-        setInputValue(curentValue)
+
+    const HandelSubmit = (event) => {
+        event.preventDefault()
+        const orderQuantity = event.target.quantity.value;
+        // console.log('oreder', orderQuantity)
+        ;
+        // if (orderQuantity < minOrderQuantity) {
+        //     return toast('you cant not order this quantity')
+        // }
+
+        const orderdetail = {
+            toolsname: name,
+            email: user?.email,
+            name: user?.displayName,
+            img,
+            price,
+            phone: event.target.phone.value,
+            quantity: event.target.quantity.value,
+        }
+
+        console.log('This is your order', orderdetail);
+
     }
 
 
@@ -38,11 +64,19 @@ const Purchase = () => {
 
                 <p>Available Quantity: {availableQuantity}</p>
                 <p>Min Order Quantity: {minOrderQuantity}</p>
-                <form onChange={handelChange}>
+                <form onSubmit={HandelSubmit} >
+                    <input type="email" name='email' value={user?.email} className="input input-bordered input-md w-full max-w-sm mb-4" />
+                    <input type="number" name='phone' className="input input-bordered input-md w-full max-w-sm mb-4" required placeholder='Your Phone' />
+                    <br />
+
                     <label class="input-group input-group-sm ">
-                        <button onClick={() => setMinQuantity(minQuantity - 1)} className='btn'>Decrement</button>
+
+
+                        <button onClick={() => setMinQuantity(parseInt(minQuantity) - 1)} className='btn text-4xl '>-</button>
+
                         <input
-                            value={minOrderQuantity?.value}
+                            className=' border-2'
+                            value={parseInt(minQuantity)}
                             type="number" id="quantity"
                             name="quantity"
                             min={minOrderQuantity}
@@ -50,14 +84,15 @@ const Purchase = () => {
                             step="1"
 
                         />
-                        <button onClick={() => setMinQuantity(minQuantity + 1)} className='btn'>Increment</button>
+                        <button onClick={() => setMinQuantity(minQuantity + 1)} className='btn text-4xl'>+</button>
 
                     </label>
+
+                    <div className="card-actions text-center mx-auto mt-3">
+                        <imput type="submit" className="btn btn-secondary ">Order</imput>
+                    </div>
                 </form>
 
-                <div className="card-actions">
-                    {<button className="btn btn-secondary">Order</button>}
-                </div>
             </div>
         </div>
     );

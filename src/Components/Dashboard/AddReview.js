@@ -47,7 +47,7 @@ const AddReview = () => {
                     <input type="text" name='userEmail' value={user.email} className="input input-bordered input-md w-full max-w-sm mb-4" />
                     <br />
                     <input type="number" name='rattings' className=" input input-bordered input-md w-full max-w-sm mb-4"
-                        pattern="[1-5]{1}" title="Three letter country code"
+                        min="0" max="5"
                         required
                     />
 

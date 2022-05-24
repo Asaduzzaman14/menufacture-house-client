@@ -3,8 +3,7 @@ import Loading from "../Shared/Loading";
 
 const useToken = user => {
 
-    console.log(user);
-
+    // console.log(user);
     const [token, setToken] = useState('');
 
     useEffect(() => {
@@ -17,7 +16,7 @@ const useToken = user => {
         }
 
         if (email) {
-            console.log(email);
+            // console.log(email);
             fetch(`http://localhost:5000/user/${email}`, {
                 method: 'PUT',
                 headers: {
@@ -27,13 +26,12 @@ const useToken = user => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log('data inside useToken', data);
+                    // console.log('data inside useToken', data);
                     const accessToken = data.token;
                     localStorage.setItem('accessToken', accessToken);
                     setToken(accessToken);
                 })
         }
-
 
     }, [user]);
     return [token];

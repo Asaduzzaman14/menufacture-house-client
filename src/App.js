@@ -9,15 +9,15 @@ import Signup from './Components/Login/Signup';
 import RequirAuth from './Components/Login/RequirAuth';
 import Purchase from './Components/Routes/Purchase';
 import NotFound from './Components/Shared/NotFound';
-import Profile from './Components/Dashboard/Profile';
 import Dashborad from './Components/Dashboard/Dashborad';
 import Blogs from './Components/Home/Blogs';
 import Users from './Components/Dashboard/Users';
 import MyOrder from './Components/Dashboard/MyOrder';
 import AddReview from './Components/Dashboard/AddReview';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AddProducts from './Components/Dashboard/AddProducts';
+import MyPortfolio from './Components/Dashboard/MyPortfolio';
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
 
         <Route path="/dashborad" element={<RequirAuth><Dashborad></Dashborad></RequirAuth>}>
 
-          <Route index element={<Profile></Profile>}> </Route>
+          <Route index element={<MyPortfolio></MyPortfolio>}> </Route>
           <Route path="dashborad/addreview" element={<AddReview></AddReview>}> </Route>
           <Route path="dashborad/orders" element={<MyOrder></MyOrder>}> </Route>
           <Route path="dashborad/users" element={<Users></Users>}> </Route>
