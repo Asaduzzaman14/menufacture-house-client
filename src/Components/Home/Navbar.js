@@ -19,7 +19,6 @@ const Navbar = () => {
         <li><Link className='rounded-lg' to='/home'>Home</Link></li>
         <li><Link className='rounded-lg' to='/about'>About</Link></li>
         <li><Link className='rounded-lg' to='/blogs'>Blogs</Link></li>
-        <li><Link className='rounded-lg' to='/contruct'>Contruct Us</Link></li>
 
 
         {user && <li><Link className='rounded-lg' to='/profile'>Profile</Link></li>}
