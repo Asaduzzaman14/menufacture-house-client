@@ -26,12 +26,19 @@ const Dashborad = () => {
 
                         {/* <!-- Sidebar content here --> */}
                         <li><Link to=''>Protfolio</Link></li>
+                        {/* {admin ? '' : <li><Link to='dashborad/addreview'>Add Review</Link></li>} */}
                         <li><Link to='dashborad/addreview'>Add Review</Link></li>
 
                         <li><Link to='dashborad/orders'>My Orders</Link></li>
 
                         <li><Link to='dashborad/addproducts'>Add Products</Link></li>
-                        {admin && <li><Link to='dashborad/users'>ALL USERS</Link></li>}
+                        {admin &&
+                            <>
+                                <li><Link to='dashborad/users'>ALL USERS</Link></li>
+                                <li><Link to='dashborad/allorders'>Manage Orders</Link></li>
+                                <li><Link to='dashborad/manageTools'>Manage Tools</Link></li>
+                            </>
+                        }
 
                     </ul>
 

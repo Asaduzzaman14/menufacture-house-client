@@ -18,6 +18,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AddProducts from './Components/Dashboard/AddProducts';
 import MyPortfolio from './Components/Dashboard/MyPortfolio';
+import ManageOrders from './Components/Dashboard/ManageOrders';
+import ManageTools from './Components/Dashboard/ManageTools';
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
           <Route path="dashborad/orders" element={<MyOrder></MyOrder>}> </Route>
           <Route path="dashborad/users" element={<Users></Users>}> </Route>
           <Route path="dashborad/addproducts" element={<AddProducts></AddProducts>}> </Route>
+          <Route path="dashborad/allorders" element={<ManageOrders></ManageOrders>}> </Route>
+          <Route path="dashborad/manageTools" element={<ManageTools></ManageTools>}> </Route>
 
 
         </Route>
