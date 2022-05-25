@@ -1,104 +1,150 @@
 import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useQuery } from 'react-query';
-import { Link, useParams } from 'react-router-dom';
-import Loading from '../Shared/Loading';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 const Purchase = () => {
-    const { id } = useParams()
+    const { id } = useParams();
+
     const [user] = useAuthState(auth)
+    const [q, setQ] = useState(0)
 
-    const [tool, setTool] = useState([])
-
-    const { name, img, price, desc, minOrderQuantity, availableQuantity } = tool
-    console.log('ttttttttt', minOrderQuantity);
-
-    const [minQuantity, setMinQuantity] = useState(minOrderQuantity)
-    const [maxQuantity, maxMinQuantity] = useState(availableQuantity)
-    console.log('hello', minQuantity);
+    const [service, setService] = useState({})
+    const [isReload, setIsReload] = useState(false)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tool/${id}`)
+
+        const url = `http://localhost:5000/tool/${id}`
+        fetch(url)
             .then(res => res.json())
-            .then(data => setTool(data))
+            .then(data => setService(data))
+    }, [])
 
-    }, [id])
 
+    let { name, price, img, desc, minOrderQuantity, availableQuantity } = service;
 
-    const HandelSubmit = (event) => {
-        event.preventDefault()
-        const orderQuantity = event.target.quantity.value;
-        // console.log('oreder', orderQuantity)
-        ;
-        // if (orderQuantity < minOrderQuantity) {
-        //     return toast('you cant not order this quantity')
-        // }
+    //---quantity-----
 
-        const orderdetail = {
-            toolsname: name,
-            email: user?.email,
-            name: user?.displayName,
-            img,
-            price,
-            phone: event.target.phone.value,
-            quantity: event.target.quantity.value,
+    const handleOrder = (e) => {
+        e.preventDefault();
+
+        //.................................................
+        let orderQ = e.target.number.value;
+        console.log(orderQ);
+        if (orderQ > minOrderQuantity && orderQ < availableQuantity) {
+            const address = e.target.address.value;
+            const quantity = e.target.number.value;
+
+            const order = {
+                name: name,
+                address: address,
+                quantity: quantity,
+                email: user.email,
+                price: price
+            };
+            console.log(order);
+            fetch("http://localhost:5000/order", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify(order),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    // console.log(data);
+                    e.target.reset();
+                    setIsReload(!isReload);
+                });
+
+            // ......................................
+            setQ(orderQ);
+            // availableQuantity = availableQuantity - orderQ;
+            // const updatedParts = { availableQuantity };
+
+            //     fetch(`http://localhost:5000/tool/${id}`, {
+            //         method: "PATCH",
+            //         headers: {
+            //             "content-type": "application/json",
+            //         },
+
+            //         body: JSON.stringify(updatedParts),
+            //     })
+            //         .then((res) => res.json())
+            //         .then((data) => {
+            //             console.log(data);
+            //             toast.success('updated ok')
+            //         });
+        }
+        else {
+            alert('You cannot order parts less than minimum quantity')
         }
 
-        console.log('This is your order', orderdetail);
 
     }
-
-
     return (
-        <div className="card d-flex lg:flex-row w-full bg-base-100  p-2 mx-5 border-2 border-red-500 mt-20">
-            <figure className="px-10 pt-5">
-                <img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" className="rounded-xl" />
-            </figure>
-            <div className="card-body items-center text-center">
-                <h3 className="card-title">{name}</h3>
-                <p><span className='font-bold'>Description:</span> {desc}</p>
-                <p>Price: {price}</p>
 
-                <p>Available Quantity: {availableQuantity}</p>
-                <p>Min Order Quantity: {minOrderQuantity}</p>
-                <form onSubmit={HandelSubmit} >
-                    <input type="email" name='email' value={user?.email} className="input input-bordered input-md w-full max-w-sm mb-4" />
-                    <input type="number" name='phone' className="input input-bordered input-md w-full max-w-sm mb-4" required placeholder='Your Phone' />
+        <div class="card lg:card-side bg-orange-50 shadow-xl text-center my-6 w-[800px] mx-auto text-center">
+            <figure><img src={img} alt="Album" /></figure>
+            <div class="card-body">
+                <h2 className="card-title">Name: {name}</h2>
+                <h4 className="card-title">Price: {price}</h4>
+                <h4 className="card-title">Minimum: {minOrderQuantity}</h4>
+                -  <h4 className="card-title">Available: {availableQuantity}</h4>
+                <p className="card-title"><small>Des: {desc}</small></p>
+                <h2 className='card-title text-purple-500 font-bold font-mono text-left'>User-name: {user?.displayName}</h2>
+                <h3 className='card-title text-purple-500 font-bold font-mono text-left'>User-email: {user?.email}</h3>
+
+                <form onSubmit={handleOrder}>
+                    <input
+                        type="text"
+                        name="partsName"
+                        disabled
+                        value={name}
+                        class="input input-bordered w-full max-w-xs mb-2"
+                    />
+                    <br />
+                    <input
+                        value={minOrderQuantity?.value}
+                        type="number"
+                        name="number"
+                        class="input input-bordered w-full max-w-xs mb-2"
+                    />
+                    <br />
+                    <input
+                        type="email"
+                        name="email"
+                        disabled
+                        value={user?.email}
+                        placeholder="Type here"
+                        class="input input-bordered w-full max-w-xs mb-2 font-semibold"
+                    />
+                    <br />
+                    <input
+                        type="text"
+                        name="address"
+                        placeholder="Address"
+                        class="input input-bordered w-full max-w-xs mb-2"
+                    />
+                    <br />
+                    <input
+                        type="number"
+                        placeholder="Phone Number"
+                        class="input input-bordered w-full max-w-xs mb-2"
+                    />
                     <br />
 
-                    <label class="input-group input-group-sm ">
-
-
-                        <button onClick={() => setMinQuantity(parseInt(minQuantity) - 1)} className='btn text-4xl '>-</button>
-
-                        <input
-                            className=' border-2'
-                            value={parseInt(minQuantity)}
-                            type="number" id="quantity"
-                            name="quantity"
-                            min={minOrderQuantity}
-                            max={availableQuantity}
-                            step="1"
-
-                        />
-                        <button onClick={() => setMinQuantity(minQuantity + 1)} className='btn text-4xl'>+</button>
-
-                    </label>
-
-                    <div className="card-actions text-center mx-auto mt-3">
-                        <imput type="submit" className="btn btn-secondary ">Order</imput>
-                    </div>
+                    <input
+                        type="submit"
+                        value="Place Order"
+                        class="input input-bordered w-full max-w-xs btn btn-primary"
+                    />
                 </form>
 
             </div>
         </div>
     );
-};
+}
 
 export default Purchase;
-
-
-

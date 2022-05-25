@@ -13,7 +13,7 @@ const ManageTool = ({ tool, index }) => {
             <td>{minOrderQuantity}</td>
             <td>{availableQuantity}</td>
 
-            <td><button className="btn btn-xs">Remove</button></td>
+            <td><button onClick={''} className="btn btn-xs">Remove</button></td>
         </tr>
 
     );
