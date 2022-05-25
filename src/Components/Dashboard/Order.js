@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Order = ({ order, index, setDeleteOrder, refetch }) => {
     const { name, _id, email, quantity, price } = order
-    console.log(_id);
 
     const handelDelete = (id) => {
         fetch(`http://localhost:5000/deleteOrder/${id}`, {
@@ -16,7 +16,7 @@ const Order = ({ order, index, setDeleteOrder, refetch }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.deletedCount === 0) {
+                if (data.deletedCount === 1) {
                     toast('success')
                     refetch()
                 }
@@ -33,7 +33,9 @@ const Order = ({ order, index, setDeleteOrder, refetch }) => {
             <td>{price}</td>
 
             <td>
-                <button className="btn btn-xs text-white bg-success">pay</button>
+                {<Link to={`payment/${_id}`} className="btn btn-xs text-white bg-success">pay</Link>}
+
+
                 <button onClick={() => handelDelete(_id)} htmlFor="delete-confirm-modal" className="m-3 btn btn-xs text-error">Remove</button>
             </td>
         </tr>

@@ -22,24 +22,22 @@ const Dashborad = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
-                    <ul className="bg-secondary text-white  font-semibold menu p-4 overflow-y-auto w-48  font-serif ">
+                    <ul className="bg-secondary text-white mt-14  font-semibold menu p-4 overflow-y-auto w-48  font-serif ">
 
-                        {/* <!-- Sidebar content here --> */}
                         <li><Link to=''>Protfolio</Link></li>
-                        {/* {admin ? '' : <li><Link to='dashborad/addreview'>Add Review</Link></li>} */}
-                        <li><Link to='dashborad/addreview'>Add Review</Link></li>
+                        {/* {admin ? '' : <li><Link to='addreview'>Add Review</Link></li>} */}
+                        <li><Link to='addreview'>Add Review</Link></li>
 
-                        <li><Link to='dashborad/orders'>My Orders</Link></li>
-                        <li><Link to='dashborad/myprofile'>My Profile</Link></li>
-
-                        <li><Link to='dashborad/addproducts'>Add Products</Link></li>
+                        <li><Link to='orders'>My Orders</Link></li>
+                        <li><Link to='myprofile'>My Profile</Link></li>
+                        <li><Link to='addproducts'>Add Products</Link></li>
 
 
                         {admin &&
                             <>
-                                <li><Link to='dashborad/users'>ALL USERS</Link></li>
-                                <li><Link to='dashborad/allorders'>Manage Orders</Link></li>
-                                <li><Link to='dashborad/manageTools'>Manage Tools</Link></li>
+                                <li><Link to='users'>ALL USERS</Link></li>
+                                <li><Link to='allorders'>Manage Orders</Link></li>
+                                <li><Link to='manageTools'>Manage Tools</Link></li>
                             </>
                         }
 

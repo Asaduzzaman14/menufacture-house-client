@@ -35,8 +35,8 @@ const AddReview = () => {
     return (
         <div>
             <div className='text-center py-12 mt-5 bg-slate-50 '>
-                <h2 className=' text-3xl mb-3 font-mono md:text-lg sm:text-xs ' >ADD YOUR REVIEW</h2>
-                <form onSubmit={handelFormSubmit} className="md:max-w-sm">
+                <h2 className=' text-3xl mb-3 font-mono lg:text-lg sm:text-xl ' >ADD YOUR REVIEW</h2>
+                <form onSubmit={handelFormSubmit} className="sm:max-w-sm mx-auto">
                     <input type="text" name='userName' placeholder="name" className="input input-bordered input-md w-full max-w-sm mb-4" required />
                     <br />
                     <input type="text" name='userEmail' value={user.email} className="input input-bordered input-md w-full max-w-sm mb-4" />

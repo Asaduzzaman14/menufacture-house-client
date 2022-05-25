@@ -21,12 +21,13 @@ import MyPortfolio from './Components/Dashboard/MyPortfolio';
 import ManageOrders from './Components/Dashboard/ManageOrders';
 import ManageTools from './Components/Dashboard/ManageTools';
 import MyProfile from './Components/Dashboard/MyProfile';
-import MyProfileInfo from './Components/Dashboard/MyProfile/MyProfileInfo';
+import MyProfileInfo from './Components/Dashboard/MyProfileInfo';
+import Payment from './Components/Dashboard/Payment';
 
 function App() {
   return (
     <div className="App">
-      <Navbar></Navbar>
+      <Navbar ></Navbar>
 
       <Routes>
         <Route path="/" element={<Home></Home>}> </Route>
@@ -39,16 +40,19 @@ function App() {
         <Route path="/about" element={<RequirAuth> <About></About></RequirAuth>}> </Route>
 
 
-        <Route path="/dashborad" element={<RequirAuth><Dashborad></Dashborad></RequirAuth>}>
+        <Route path="dashborad" element={<RequirAuth><Dashborad></Dashborad></RequirAuth>}>
 
           <Route index element={<MyPortfolio></MyPortfolio>}> </Route>
-          <Route path="dashborad/addreview" element={<AddReview></AddReview>}> </Route>
-          <Route path="dashborad/orders" element={<MyOrder></MyOrder>}> </Route>
-          <Route path="dashborad/users" element={<Users></Users>}> </Route>
-          <Route path="dashborad/addproducts" element={<AddProducts></AddProducts>}> </Route>
-          <Route path="dashborad/allorders" element={<ManageOrders></ManageOrders>}> </Route>
-          <Route path="dashborad/manageTools" element={<ManageTools></ManageTools>}> </Route>
-          <Route path="dashborad/myprofile" element={<MyProfile></MyProfile>}> </Route>
+          <Route path="addreview" element={<AddReview></AddReview>}> </Route>
+          <Route path="orders" element={<MyOrder></MyOrder>}> </Route>
+          <Route path="users" element={<Users></Users>}> </Route>
+          <Route path="orders/payment/:id" element={<Payment></Payment>}> </Route>
+
+
+          <Route path="addproducts" element={<AddProducts></AddProducts>}> </Route>
+          <Route path="allorders" element={<ManageOrders></ManageOrders>}> </Route>
+          <Route path="manageTools" element={<ManageTools></ManageTools>}> </Route>
+          <Route path="myprofile" element={<MyProfile></MyProfile>}> </Route>
 
 
         </Route>
