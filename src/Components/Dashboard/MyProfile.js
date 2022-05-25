@@ -13,7 +13,7 @@ const MyProfile = () => {
 
             <h3>{user?.email}</h3>
             <h3>{user?.displayName}</h3>
-            <label htmlFor="booking-modal" className="btn btn-secondary text-white  modal-button">Book Appointment</label>
+            <label htmlFor="booking-modal" className="btn btn-secondary text-white  modal-button">add information</label>
 
             <button onClick={'/myProfileInfo'}>Add information</button>
         </div>

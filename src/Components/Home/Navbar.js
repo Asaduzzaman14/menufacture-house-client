@@ -16,23 +16,23 @@ const Navbar = () => {
 
 
     const menuItem = <>
-        <li><Link className='rounded-lg' to='/home'>Home</Link></li>
-        <li><Link className='rounded-lg' to='/about'>About</Link></li>
-        <li><Link className='rounded-lg' to='/blogs'>Blogs</Link></li>
+        <li><Link className='rounded-lg text-xl' to='/home'>Home</Link></li>
+        <li><Link className='rounded-lg text-xl' to='/about'>About</Link></li>
+        <li><Link className='rounded-lg text-xl' to='/blogs'>Blogs</Link></li>
 
 
-        {user && <li><Link className='rounded-lg' to='/profile'>Profile</Link></li>}
+        {user && <li><Link className='rounded-lg text-xl' to='/profile'>Profile</Link></li>}
 
         <li>{user ? <>
-            <Link to='/dashborad' className='btn btn-ghost'>Dashborad</Link>
-            <button onClick={logout} className='btn btn-ghost' >Sign out</button>
+            <Link to='/dashborad' className='btn btn-ghost text-xl'>Dashborad</Link>
+            <button onClick={logout} className='btn btn-ghost text-xl' >Sign out</button>
         </>
-            : <Link to='login'>Login</Link>}</li>
+            : <Link className='text-xl' to='login'>Login</Link>}</li>
     </>
 
 
     return (
-        <div className="navbar ">
+        <div className="navbar fixed z-10 bg-gray-400 shadow-xl">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -42,7 +42,7 @@ const Navbar = () => {
                         {menuItem}
                     </ul>
                 </div>
-                <span className="btn btn-ghost normal-case text-xl">MenuFacturer</span>
+                <span className="btn btn-ghost normal-case text-xl">Menu<span className='text-red-700'>Facturer</span></span>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

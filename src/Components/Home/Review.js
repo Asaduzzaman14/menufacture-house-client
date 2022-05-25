@@ -8,12 +8,12 @@ const Review = ({ userReview }) => {
 
     return (
         <div className=" mt-2 card w-full bg-base-100 shadow-xl">
-            <div class="card-body">
-                <h2 class="card-title">{name}</h2>
+            <div className="card-body">
+                <h2 className="card-title">{name}</h2>
                 <p>{email}</p>
                 <p>{review}</p>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Details</button>
+                <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Details</button>
                 </div>
             </div>
         </div>

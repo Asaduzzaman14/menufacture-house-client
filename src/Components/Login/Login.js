@@ -25,13 +25,15 @@ const Login = () => {
     let signInError;
     const navigate = useNavigate()
     const location = useLocation()
+
     let from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
         if (token) {
-            navigate(from, { replace: true });
 
+            navigate(from, { replace: true });
         }
+
     }, [token, from, navigate])
 
 
@@ -46,6 +48,7 @@ const Login = () => {
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)
+
     };
 
 
@@ -132,7 +135,7 @@ const Login = () => {
 
 
                         {signInError}
-                        <input type="submit" value={'LOGIN'} className='btn w-full text-white' />
+                        <input type="submit" value={'LOGIN'} className='btn w-full btn-secondary text-white' />
                         <Link to='/signup'><small>New To Doctors Porta ? <span className='text-primary'>Create an account</span></small></Link>
                         <br />
 
@@ -151,7 +154,7 @@ const Login = () => {
                     <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}
-                        className="btn btn-outline btn-accent"
+                        className="btn btn-outline btn-black"
                     >Continew with Google</button>
 
                 </div>

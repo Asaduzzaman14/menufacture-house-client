@@ -31,7 +31,7 @@ const Signup = () => {
         signInError = <small className='text-red-500'>{error?.message || googleError?.message}</small>
     }
     if (token) {
-        navigate('/about');
+        navigate('/');
     }
 
 
@@ -156,7 +156,7 @@ const Signup = () => {
 
 
                         {signInError}
-                        <input type="submit" value={'SIGNUP'} className='btn w-full text-white' />
+                        <input type="submit" value={'SIGNUP'} className='btn w-full btn-secondary text-white' />
                         <p><small>ALREADY HAVE AN ACCOUNT ? <Link to='/login' className='text-primary'>LOGIN</Link></small></p>
 
                     </form>
@@ -167,7 +167,7 @@ const Signup = () => {
                     <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}
-                        className="btn btn-outline btn-accent"
+                        className="btn btn-outline btn-black"
                     >Continew with Google</button>
 
                 </div>

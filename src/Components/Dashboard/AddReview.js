@@ -34,27 +34,22 @@ const AddReview = () => {
 
     return (
         <div>
-            <h2 className="text-2xl text-red-500">This is Add review</h2>
-
-
-
-            <div
-                className='text-center py-12 mt-36'>
-                <h2 className=' text-3xl mb-3'>ADD YOUR REVIEW</h2>
-                <form onSubmit={handelFormSubmit}>
+            <div className='text-center py-12 mt-5 bg-slate-50 '>
+                <h2 className=' text-3xl mb-3 font-mono md:text-lg sm:text-xs ' >ADD YOUR REVIEW</h2>
+                <form onSubmit={handelFormSubmit} className="md:max-w-sm">
                     <input type="text" name='userName' placeholder="name" className="input input-bordered input-md w-full max-w-sm mb-4" required />
                     <br />
                     <input type="text" name='userEmail' value={user.email} className="input input-bordered input-md w-full max-w-sm mb-4" />
                     <br />
-                    <input type="number" name='rattings' className=" input input-bordered input-md w-full max-w-sm mb-4"
-                        min="0" max="5"
+                    <input type="number" name='rattings' placeholder='Ratting 1-5' className=" input input-bordered input-md w-full max-w-sm mb-4"
+                        min="1" max="5"
                         required
                     />
 
                     <br />
                     <textarea name='review' className=" textarea textarea-primary w-full max-w-sm mb-6" placeholder="Your Review" required></textarea>
                     <br />
-                    <input type="submit" className="input bg-primary font-bold text-lg text-white input-bordered input-md w-full max-w-xs mb-4" />
+                    <input type="submit" value={'Add Review'} className="input bg-primary font-bold text-lg text-white input-bordered input-md w-full max-w-xs mb-4" />
 
                 </form>
             </div>

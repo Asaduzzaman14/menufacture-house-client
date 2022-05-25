@@ -85,9 +85,9 @@ const Purchase = () => {
     }
     return (
 
-        <div class="card lg:card-side bg-orange-50 shadow-xl text-center my-6 w-[800px] mx-auto text-center">
+        <div className="card lg:card-side bg-orange-50 shadow-xl text-center my-6 w-[800px] mx-auto text-center">
             <figure><img src={img} alt="Album" /></figure>
-            <div class="card-body">
+            <div className="card-body">
                 <h2 className="card-title">Name: {name}</h2>
                 <h4 className="card-title">Price: {price}</h4>
                 <h4 className="card-title">Minimum: {minOrderQuantity}</h4>
@@ -102,14 +102,14 @@ const Purchase = () => {
                         name="partsName"
                         disabled
                         value={name}
-                        class="input input-bordered w-full max-w-xs mb-2"
+                        className="input input-bordered w-full max-w-xs mb-2"
                     />
                     <br />
                     <input
                         value={minOrderQuantity?.value}
                         type="number"
                         name="number"
-                        class="input input-bordered w-full max-w-xs mb-2"
+                        className="input input-bordered w-full max-w-xs mb-2"
                     />
                     <br />
                     <input
@@ -118,27 +118,27 @@ const Purchase = () => {
                         disabled
                         value={user?.email}
                         placeholder="Type here"
-                        class="input input-bordered w-full max-w-xs mb-2 font-semibold"
+                        className="input input-bordered w-full max-w-xs mb-2 font-semibold"
                     />
                     <br />
                     <input
                         type="text"
                         name="address"
                         placeholder="Address"
-                        class="input input-bordered w-full max-w-xs mb-2"
+                        className="input input-bordered w-full max-w-xs mb-2"
                     />
                     <br />
                     <input
                         type="number"
                         placeholder="Phone Number"
-                        class="input input-bordered w-full max-w-xs mb-2"
+                        className="input input-bordered w-full max-w-xs mb-2"
                     />
                     <br />
 
                     <input
                         type="submit"
                         value="Place Order"
-                        class="input input-bordered w-full max-w-xs btn btn-primary"
+                        className="input input-bordered w-full max-w-xs btn btn-primary"
                     />
                 </form>
 
