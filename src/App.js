@@ -21,6 +21,7 @@ import MyPortfolio from './Components/Dashboard/MyPortfolio';
 import ManageOrders from './Components/Dashboard/ManageOrders';
 import ManageTools from './Components/Dashboard/ManageTools';
 import MyProfile from './Components/Dashboard/MyProfile';
+import MyProfileInfo from './Components/Dashboard/MyProfile/MyProfileInfo';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<Home></Home>}> </Route>
         <Route path="/home" element={<Home></Home>}> </Route>
         <Route path="/blogs" element={<Blogs></Blogs>}> </Route>
+        <Route path="/myProfileInfo" element={<MyProfileInfo></MyProfileInfo>}> </Route>
 
 
         <Route path="/purchase/:id" element={<Purchase></Purchase>}> </Route>
