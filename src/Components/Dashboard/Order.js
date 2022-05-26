@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import DeleteOrderModal from './DeleteOrderModal';
 
-const Order = ({ order, index, refetch }) => {
+const Order = ({ order, index, setOrderDeleteId, refetch }) => {
 
-    const [orderDeleteId, setOrderDeleteId] = useState(null)
 
 
 
@@ -24,16 +23,12 @@ const Order = ({ order, index, refetch }) => {
                 <td>
                     {<Link to={`payment/${_id}`} className="btn btn-xs text-white bg-success">pay</Link>}
 
-                    <label onClick={() => setOrderDeleteId(order?._id)} for="my-modal-6" class="btn modal-button btn-xs text-error modal-button">Remove</label>
+                    <label onClick={() => setOrderDeleteId(order)} for="my-modal-6" class="btn modal-button btn-xs text-error modal-button">Remove</label>
 
                 </td>
             </tr>
 
-            <DeleteOrderModal
-                orderDeleteId={orderDeleteId}
-                refetch={refetch}
 
-            ></DeleteOrderModal>
 
 
 

@@ -7,6 +7,8 @@ import DeleteOrderModal from './DeleteOrderModal';
 import Order from './Order';
 
 const MyOrder = () => {
+    const [orderDeleteId, setOrderDeleteId] = useState(null)
+
 
 
     const [user] = useAuthState(auth)
@@ -46,7 +48,7 @@ const MyOrder = () => {
                                     order={order}
                                     index={index}
                                     refetch={refetch}
-
+                                    setOrderDeleteId={setOrderDeleteId}
                                 ></Order>
                                 )
                             }
@@ -57,6 +59,12 @@ const MyOrder = () => {
 
                 </div>
             </div>
+
+            {orderDeleteId && <DeleteOrderModal
+                orderDeleteId={orderDeleteId}
+                setOrderDeleteId={setOrderDeleteId}
+
+            ></DeleteOrderModal>}
         </div>
     );
 };
