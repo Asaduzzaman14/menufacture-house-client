@@ -39,15 +39,6 @@ const Payment = () => {
     return (
         <div className='flex gap-5 m-8 mt-10'>
 
-            {/* <div class="card w-96 bg-base-100 shadow-xl">
-                <div class="card-body">
-                    <h2 class="card-title">{order.name}</h2>
-                    <p>Price: ${order.quantity}</p>
-                    <p>quantity: {order.price}</p>
-                    <p>total: ${order.quantity * order.price}</p>
-
-                </div>
-            </div> */}
 
             <div className="card w-50 max-w-md bg-base-100 shadow-xl my-12 gap-7">
                 <div className="card w-50 max-w-md bg-base-100 shadow-xl">

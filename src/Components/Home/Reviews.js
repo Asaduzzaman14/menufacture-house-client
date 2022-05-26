@@ -14,12 +14,16 @@ const Reviews = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
+
+    const rev = reviews.reverse()
+    const customerRev = rev.slice(0, 6)
+
     return (
-        <div>
-            <h2 className='text-3xl bg-red-900 p-4 mt-10 rounded-lg text-white'>THis is review page: {reviews?.length} </h2>
-            <div className='grid justify-center sm:grid-cols-12 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-x-5'>
+        <div className='p-5 bg-teal-100 mt-5'>
+            <h2 className='text-3xl p-4 mt-5 rounded-lg '>Customer review  </h2>
+            <div className='grid justify-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 gap-x-5'>
                 {
-                    reviews?.map(review => <Review
+                    customerRev?.map(review => <Review
                         userReview={review}
                         key={review._id}
                     ></Review>)

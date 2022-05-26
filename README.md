@@ -1,3 +1,42 @@
+
+
+### Live Site:
+
+
+# Techonology use
+* jsvaScript
+* React
+* Tailwind
+* Firebase
+* React hook form
+* React Firebase Hooks
+* Reaact Query 
+* React Countup
+* React Toastify
+* React Stripe
+*
+
+
+#Website Features
+* register with google
+* sign in with email and password
+* Reset password
+* blogs page
+* require authentication
+* simple footer
+* Visit Our menufacture section
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

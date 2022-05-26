@@ -1,44 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import DeleteOrderModal from './DeleteOrderModal';
 
-const Order = ({ order, index, setDeleteOrder, refetch }) => {
+const Order = ({ order, index, refetch }) => {
+
+    const [orderDeleteId, setOrderDeleteId] = useState(null)
+
+
+
+
     const { name, _id, email, quantity, price } = order
-
-    const handelDelete = (id) => {
-        fetch(`http://localhost:5000/deleteOrder/${id}`, {
-            method: 'DELETE',
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.deletedCount === 1) {
-                    toast('success')
-                    refetch()
-                }
-            })
-    }
-
-
     return (
-        <tr>
-            <th>{index + 1}</th>
-            <td>{name}</td>
-            <td>{email}</td>
-            <td>{quantity}</td>
-            <td>{price}</td>
 
-            <td>
-                {<Link to={`payment/${_id}`} className="btn btn-xs text-white bg-success">pay</Link>}
+        <>
+            <tr>
+                <th>{index + 1}</th>
+                <td>{name}</td>
+                <td>{email}</td>
+                <td>{quantity}</td>
+                <td>{price}</td>
+
+                <td>
+                    {<Link to={`payment/${_id}`} className="btn btn-xs text-white bg-success">pay</Link>}
+
+                    <label onClick={() => setOrderDeleteId(order?._id)} for="my-modal-6" class="btn modal-button btn-xs text-error modal-button">Remove</label>
+
+                </td>
+            </tr>
+
+            <DeleteOrderModal
+                orderDeleteId={orderDeleteId}
+                refetch={refetch}
+
+            ></DeleteOrderModal>
 
 
-                <button onClick={() => handelDelete(_id)} htmlFor="delete-confirm-modal" className="m-3 btn btn-xs text-error">Remove</button>
-            </td>
-        </tr>
+
+        </>
     );
 };
 

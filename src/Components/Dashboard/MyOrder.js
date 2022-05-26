@@ -8,7 +8,6 @@ import Order from './Order';
 
 const MyOrder = () => {
 
-    const [deleteOrder, setDeleteOrder] = useState(null)
 
     const [user] = useAuthState(auth)
     const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`http://localhost:5000/orders?email=${user?.email}`, {
@@ -21,7 +20,6 @@ const MyOrder = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-
 
     return (
         <div>
@@ -48,18 +46,14 @@ const MyOrder = () => {
                                     order={order}
                                     index={index}
                                     refetch={refetch}
-                                    setDeleteOrder={setDeleteOrder}
+
                                 ></Order>
                                 )
                             }
                         </tbody>
                     </table>
 
-                    {/* {deleteOrder && <DeleteOrderModal
-                        refetch={refetch}
-                        deleteOrder={deleteOrder}
-                        setDeleteOrder={setDeleteOrder}
-                    ></DeleteOrderModal>} */}
+
 
                 </div>
             </div>
