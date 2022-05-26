@@ -12,38 +12,58 @@ const MyProfile = () => {
 
     console.log(user.email);
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/userdetail?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => console.log(data))
 
+    const { data: userDetail, isLoading, refetch } = useQuery('details', () => fetch(`http://localhost:5000/profilrdetail/${user?.email}`, {
+        method: 'GET',
 
-    }, [user.email])
-    // const { data: userDetail, isLoading, refetch } = useQuery('details', () => fetch(`http://localhost:5000/userdetail?email=${user?.email}`, {
-    //     method: 'GET',
+    }).then(res => res.json()));
 
-    // }).then(res => res.json()));
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
-    // if (isLoading) {
-    //     return <Loading></Loading>
-    // }
-
-    console.log('This is is user detail', userinfo);
     return (
 
-        <>
-            <div className='mt-5'>
-                <h2 className='text-2xl mt-6'>This is my Profile</h2>
-                <h3>{user?.email}</h3>
-                <h3>{user?.displayName}</h3>
-                <label htmlFor="booking-modal" className="btn btn-secondary text-white  modal-button">add information</label>
-            </div>
+        <div className=''>
+            <h2 className='text-2xl my-6'>This is my Profile</h2>
+            <label htmlFor="add-info-modal" className="btn btn-secondary text-white  modal-button">add information</label>
+            <br />
+
+            {
+                userDetail.map(detail => {
+                    return <div className='mt-5 lg:max-w-50'>
+
+                        <h3>{detail?.email}</h3>
+
+                        <h3>{detail?.displayName}</h3>
+
+                        <div className="card text-justify w-100 bg-base-100 shadow-xl mx-auto  my-2">
+                            <div className="card-body">
+                                <h2 className="card-title">Email: <span className='text-purple-500'>{detail.email}</span></h2>
+                                <h2>Name: <spna className='text-purple-500'>{detail.name}</spna></h2>
+                                <p>City: {detail.city}</p>
+                                <h3>Educational Background:
+                                    <span className='text-orange-600'>{detail.education} </span></h3>
+
+                                <p>Phone: {detail.phone}</p>
+                                <p>Linkdin Prifile: {detail.linkdin}</p>
+                            </div>
+                            <div className='mx-auto'>
+                                <button className="btn mb-2 m btn-secondary text-white  modal-button"> Edit Information</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                })
+            }
+
 
 
             <MyProfileInfo
                 user={user}
             ></MyProfileInfo>
-        </>
+        </div >
     );
 };
 

@@ -29,10 +29,11 @@ const MyProfileInfo = ({ user }) => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log('after submity', data);
                 toast.success('success added user Information')
                 setModal(false)
             })
-
+        // edit
 
 
     }
@@ -44,10 +45,10 @@ const MyProfileInfo = ({ user }) => {
     return (
         <>
             <div className=''>
-                <input type="checkbox" id="booking-modal" className="modal-toggle " />
+                <input type="checkbox" id="add-info-modal" className="modal-toggle " />
                 <div className="modal modal-bottom sm:modal-middle lg:modal-bottom max-w-md mx-auto">
                     <div className="modal-box">
-                        <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                        <label htmlFor="add-info-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
                         <h3 className="font-bold text-2xl text-secondary">ADD YOUR INFORMATION</h3>
 
