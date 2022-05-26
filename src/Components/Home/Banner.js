@@ -13,7 +13,7 @@ const Banner = () => {
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
                     <h1 className="mb-5 text-5xl font-bold">Welcome to our <br></br> Manufacturer</h1>
-                    <p className="mb-5 text-lg ">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <p className="mb-5 text-lg ">Fortune Extendables Corp. is a leading supplier of woodworking tools and accessories to the woodworking industry. We offer buyers a convenient and efficient one-stop purchase service with a wide range of woodworking tools, machinery, supplies, and accessories.</p>
                 </div>
             </div>
         </div >

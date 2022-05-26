@@ -15,6 +15,13 @@ const Blogs = () => {
             <div className="card w-full bg-base-100 shadow-xl">
 
                 <div className="card-body items-center text-center">
+                    <h3 className="card-title"> What are the different ways to manage a state in a React application?</h3>
+                    <p>Ans:React applications are built using components and they manage their state internally and it works well for applications with few components, but when the application grows bigger, the complexity of managing states shared across components becomes difficult..</p>
+                </div>
+            </div>
+            <div className="card w-full bg-base-100 shadow-xl">
+
+                <div className="card-body items-center text-center">
                     <h3 className="card-title">   2.Why you do not set the state directly in react ?</h3>
                     <p>Ans: To change a value in the state object, use the this. setState() method. When a value in the state object changes, the component will re-render, meaning that the output will change according to the new value(s).</p>
                 </div>
@@ -29,14 +36,7 @@ const Blogs = () => {
             </div>
 
 
-            <div className="card w-full bg-base-100 shadow-xl">
 
-                <div className="card-body items-center text-center">
-                    <h1 className='card-title'>4. You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?</h1>
-                    <p>Unit tests are typically automated tests written and run by software developers to ensure that a section of an application (known as the "unit") meets its design and behaves as intended. In procedural programming, a unit could be an entire module, but it is more commonly an individual function or procedure.</p>
-
-                </div>
-            </div>
             <div className="card w-full bg-base-100 shadow-xl">
 
                 <div className="card-body items-center text-center">
