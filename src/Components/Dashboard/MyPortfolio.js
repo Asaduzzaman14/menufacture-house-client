@@ -27,9 +27,9 @@ const MyPortfolio = () => {
                 </div>
                 <div className="p-2 mockup-code w-full mx-auto text-center">
                     <h2>My React project Link</h2>
-                    <a className="link link-primary">https://wonder-of-books-house.web.app/</a>
-                    <a className="link link-primary">https://teach-pitch-project.web.app/</a>
-                    <a className="link link-primary">ema-jon-project-95585.web.app</a>
+                    <a className="link link-primary">https://dentist-web-997b3.firebaseapp.com/</a>
+                    <a className="link link-primary">https://warehouse-management-6236d.web.app/</a>
+                    <a className="link link-primary">https://genius-car-services-d0550.web.app/</a>
 
                 </div>
             </div>
