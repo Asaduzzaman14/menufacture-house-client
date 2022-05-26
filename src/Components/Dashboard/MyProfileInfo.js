@@ -29,7 +29,6 @@ const MyProfileInfo = ({ user }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('after submity', data);
                 toast.success('success added user Information')
                 setModal(false)
             })

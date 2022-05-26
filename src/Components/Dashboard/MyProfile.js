@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import { Outlet } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import EditProfile from './EditProfile';
 import MyProfileInfo from './MyProfileInfo';
 
 const MyProfile = () => {
@@ -11,6 +12,7 @@ const MyProfile = () => {
     const [userinfo, setUserInfo] = useState([])
 
     console.log(user.email);
+    const [editPrifile, setEditPrifile] = useState()
 
 
     const { data: userDetail, isLoading, refetch } = useQuery('details', () => fetch(`https://gentle-headland-20307.herokuapp.com/profilrdetail/${user?.email}`, {
@@ -49,7 +51,7 @@ const MyProfile = () => {
                                 <p>Linkdin Prifile: {detail.linkdin}</p>
                             </div>
                             <div className='mx-auto'>
-                                <button className="btn mb-2 m btn-secondary text-white  modal-button"> Edit Information</button>
+                                <label onClick={() => setEditPrifile(detail)} for="my-modal-6" class="btn btn-secondary modal-button modal-button">Edit Information</label>
                             </div>
                         </div>
 
@@ -63,6 +65,10 @@ const MyProfile = () => {
             <MyProfileInfo
                 user={user}
             ></MyProfileInfo>
+            <EditProfile
+
+            >
+            </EditProfile>
         </div >
     );
 };
