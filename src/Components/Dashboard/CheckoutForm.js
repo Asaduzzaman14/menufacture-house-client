@@ -28,6 +28,7 @@ const CheckoutForm = (order) => {
                 console.log(data)
                 if (data?.clientSecret) {
                     setClientSecret(data.clientSecret)
+                    console.log(data.clientSecret);
                 }
             })
 

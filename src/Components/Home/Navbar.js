@@ -21,7 +21,7 @@ const Navbar = () => {
         <li><Link className='rounded-lg text-xl' to='/blogs'>Blogs</Link></li>
 
 
-        {user && <li><Link className='rounded-lg text-xl' to='/profile'>Profile</Link></li>}
+        {/* {user && <li><Link className='rounded-lg text-xl' to='/profile'>Profile</Link></li>} */}
 
         <li>{user ? <>
             <Link to='/dashborad' className='btn btn-ghost text-xl'>Dashborad</Link>
@@ -59,3 +59,12 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+/* 
+https://i.ibb.co/rQckYzY/tool2.jpg
+https://i.ibb.co/9ZbYzGN/tool3.jpg
+https://i.ibb.co/PzTgjXQ/tool4.jpg
+https://i.ibb.co/BPDvdvx/tool5.jpg
+https://i.ibb.co/KDnstdZ/tool6.jpg
+https://i.ibb.co/f8SjyVj/tool8.jpg */

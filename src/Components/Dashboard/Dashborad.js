@@ -25,16 +25,22 @@ const Dashborad = () => {
                     <ul className="bg-secondary text-white mt-14  font-semibold menu p-4 overflow-y-auto w-48  font-serif ">
 
                         <li><Link to=''>Protfolio</Link></li>
-                        {/* {admin ? '' : <li><Link to='addreview'>Add Review</Link></li>} */}
-                        <li><Link to='addreview'>Add Review</Link></li>
 
-                        <li><Link to='orders'>My Orders</Link></li>
-                        <li><Link to='myprofile'>My Profile</Link></li>
-                        <li><Link to='addproducts'>Add Products</Link></li>
+                        {admin ? '' :
+                            <>
+                                <li><Link to='myprofile'>My Profile</Link></li>
+                                <li><Link to='addreview'>Add Review</Link></li>
+                                <li><Link to='orders'>My Orders</Link></li>
+                            </>
+                        }
+
+
+
 
 
                         {admin &&
                             <>
+                                <li><Link to='addproducts'>Add Products</Link></li>
                                 <li><Link to='users'>ALL USERS</Link></li>
                                 <li><Link to='allorders'>Manage Orders</Link></li>
                                 <li><Link to='manageTools'>Manage Tools</Link></li>
