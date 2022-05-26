@@ -10,9 +10,9 @@ const Card = ({ tool }) => {
                 <img src={img} alt="tools" className="rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
-                <h3 className="card-title">{name}</h3>
+                <h3 className="card-title">Name: {name}</h3>
                 <p><span className='font-bold'>Description:</span> {desc}</p>
-                <p>Price: {price}</p>
+                <p>Price: ${price}</p>
 
                 <p>Available Quantity: {availableQuantity}</p>
                 <p>Min Order Quantity: {minOrderQuantity}</p>

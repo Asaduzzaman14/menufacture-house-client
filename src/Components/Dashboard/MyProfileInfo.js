@@ -20,7 +20,7 @@ const MyProfileInfo = ({ user }) => {
         }
 
         console.log(userInfo);
-        fetch('http://localhost:5000/userinfo', {
+        fetch('https://gentle-headland-20307.herokuapp.com/userinfo', {
             "method": "POST",
             headers: {
                 'Content-type': 'application/json',

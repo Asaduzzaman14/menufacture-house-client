@@ -8,7 +8,7 @@ const DeleteOrderModal = ({ refetch, orderDeleteId, }) => {
 
 
     const handelDelete = (id) => {
-        fetch(`http://localhost:5000/deleteOrder/${id}`, {
+        fetch(`https://gentle-headland-20307.herokuapp.com/deleteOrder/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -20,7 +20,7 @@ const Payment = () => {
 
 
 
-    const { data: order, isLoading, refetch } = useQuery('ordersPay', () => fetch(`http://localhost:5000/payorder/${id}`, {
+    const { data: order, isLoading, refetch } = useQuery('ordersPay', () => fetch(`https://gentle-headland-20307.herokuapp.com/payorder/${id}`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

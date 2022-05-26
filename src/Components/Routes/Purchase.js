@@ -15,7 +15,7 @@ const Purchase = () => {
 
     useEffect(() => {
 
-        const url = `http://localhost:5000/tool/${id}`
+        const url = `https://gentle-headland-20307.herokuapp.com/tool/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setService(data))
@@ -44,7 +44,7 @@ const Purchase = () => {
                 price: price
             };
             console.log(order);
-            fetch("http://localhost:5000/order", {
+            fetch("https://gentle-headland-20307.herokuapp.com/order", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
@@ -53,32 +53,17 @@ const Purchase = () => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    // console.log(data);
+                    toast('Order succes')
                     e.target.reset();
                     setIsReload(!isReload);
                 });
 
             // ......................................
-            setQ(orderQ);
-            // availableQuantity = availableQuantity - orderQ;
-            // const updatedParts = { availableQuantity };
+            // setQ(orderQ);
 
-            //     fetch(`http://localhost:5000/tool/${id}`, {
-            //         method: "PATCH",
-            //         headers: {
-            //             "content-type": "application/json",
-            //         },
-
-            //         body: JSON.stringify(updatedParts),
-            //     })
-            //         .then((res) => res.json())
-            //         .then((data) => {
-            //             console.log(data);
-            //             toast.success('updated ok')
-            //         });
         }
         else {
-            alert('You cannot order parts less than minimum quantity')
+            toast('You cannot order less than minimum quantity or more then avilable')
         }
 
 
@@ -91,7 +76,7 @@ const Purchase = () => {
                 <h2 className="card-title">Name: {name}</h2>
                 <h4 className="card-title">Price: {price}</h4>
                 <h4 className="card-title">Minimum: {minOrderQuantity}</h4>
-                -  <h4 className="card-title">Available: {availableQuantity}</h4>
+                <h4 className="card-title">Available: {availableQuantity}</h4>
                 <p className="card-title"><small>Des: {desc}</small></p>
                 <h2 className='card-title text-purple-500 font-bold font-mono text-left'>User-name: {user?.displayName}</h2>
                 <h3 className='card-title text-purple-500 font-bold font-mono text-left'>User-email: {user?.email}</h3>
@@ -106,6 +91,7 @@ const Purchase = () => {
                     />
                     <br />
                     <input
+                        placeholder='Quantity'
                         value={minOrderQuantity?.value}
                         type="number"
                         name="number"
