@@ -5,13 +5,9 @@ import DeleteOrderModal from './DeleteOrderModal';
 
 const Order = ({ order, index, setOrderDeleteId, refetch }) => {
 
-
-
-
-
     const { name, _id, img, email, quantity, price, paid, transectionId } = order
-    return (
 
+    return (
         <>
             <tr>
                 <th>{index + 1}</th>

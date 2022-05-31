@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
 import ManageTool from './ManageTool';
+import RemoveTools from './RemoveTools';
 
 const ManageTools = () => {
 
 
-    const [tools, setTools] = useState([])
+    const [removeTools, setRemoveTools] = useState(null)
+    console.log(removeTools);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/parts', {
-            method: 'GET',
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => setTools(data))
+    const { data: tools, isLoading, refetch } = useQuery('manageTools', () => fetch('http://localhost:5000/parts', {
+        method: 'GET',
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()));
 
-
-    }, [])
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
 
 
@@ -33,8 +35,8 @@ const ManageTools = () => {
                         <thead>
                             <tr>
                                 <th>no.</th>
+                                <th>Image</th>
                                 <th>Name</th>
-                                <th>email</th>
                                 <th>min order quantity</th>
                                 <th>abailavle quantity</th>
                                 <th>Action</th>
@@ -46,12 +48,19 @@ const ManageTools = () => {
                                     key={tool._id}
                                     tool={tool}
                                     index={index}
+                                    setRemoveTools={setRemoveTools}
                                 ></ManageTool>
                                 )
                             }
                         </tbody>
                     </table>
                 </div>
+
+                {removeTools && <RemoveTools
+                    refetch={refetch}
+                    removeTools={removeTools}
+                    setRemoveTools={setRemoveTools}
+                ></RemoveTools>}
             </div>
 
 

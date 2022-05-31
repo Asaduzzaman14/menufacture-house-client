@@ -55,7 +55,7 @@ const Login = () => {
 
     return (
 
-        <div className='flex h-screen mt-5 justify-center items-center'>
+        <div className='flex  mt-5 justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-lg">
                 <div className="card-body ">
                     <h2 className="text-center font-bold text-2xl">Login</h2>
@@ -136,25 +136,22 @@ const Login = () => {
 
                         {signInError}
                         <input type="submit" value={'LOGIN'} className='btn w-full btn-secondary text-white' />
-                        <Link to='/signup'><small>New To Doctors Porta ? <span className='text-primary'>Create an account</span></small></Link>
+                        <Link to='/signup'><small>New To Friends Factory ? <span className='text-primary font-mono hover:underline'>Create an account</span></small></Link>
                         <br />
 
 
                         <small>Forgate password ? <button onClick={async () => {
                             await sendPasswordResetEmail(emailvalue);
                             alert('Sent email');
-                        }} className='text-primary'>Resate password</button></small>
+                        }} className='text-primary font-mono hover:underline'>Resate password</button></small>
 
 
                     </form>
 
-
-
-
                     <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}
-                        className="btn btn-outline btn-black"
+                        className="hover:bg-primary btn btn-outline"
                     >Continew with Google</button>
 
                 </div>

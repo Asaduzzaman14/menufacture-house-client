@@ -45,7 +45,7 @@ const Signup = () => {
 
 
     return (
-        <div className='flex h-screen justify-center items-center'>
+        <div className='flex mt-5 justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-lg">
                 <div className="card-body ">
                     <h2 className="text-center font-bold text-2xl">Sign Up</h2>
