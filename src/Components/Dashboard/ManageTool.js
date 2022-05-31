@@ -13,7 +13,7 @@ const ManageTool = ({ tool, index, setRemoveTools }) => {
             <td>{availableQuantity}</td>
 
             <td>
-                <label onClick={() => setRemoveTools(tool)} for="my-modal-11" class="btn modal-button btn-xs text-error modal-button">Remove</label>
+                <label onClick={() => setRemoveTools(tool)} for="remove-tool" class="btn modal-button btn-xs text-error modal-button">Remove</label>
             </td>
         </tr>
 
