@@ -17,7 +17,7 @@ const AddProducts = () => {
             availableQuantity: e.target.availableQuantity.value,
 
         }
-        fetch('https://gentle-headland-20307.herokuapp.com/tool', {
+        fetch('http://localhost:5000/tool', {
             "method": "POST",
             headers: {
                 'Content-type': 'application/json',

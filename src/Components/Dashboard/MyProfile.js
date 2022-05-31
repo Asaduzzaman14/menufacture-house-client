@@ -15,7 +15,7 @@ const MyProfile = () => {
     const [editPrifile, setEditPrifile] = useState()
 
 
-    const { data: userDetail, isLoading, refetch } = useQuery('details', () => fetch(`https://gentle-headland-20307.herokuapp.com/profilrdetail/${user?.email}`, {
+    const { data: userDetail, isLoading, refetch } = useQuery('details', () => fetch(`http://localhost:5000/profilrdetail/${user?.email}`, {
         method: 'GET',
 
     }).then(res => res.json()));
@@ -23,11 +23,10 @@ const MyProfile = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-
     return (
 
         <div className=''>
-            <h2 className='text-2xl my-6'>This is my Profile</h2>
+            <h2 className='text-3xl my-6 text-lime-600'>Your Profile</h2>
             <label htmlFor="add-info-modal" className="btn btn-secondary text-white  modal-button">add information</label>
             <br />
 
@@ -51,7 +50,7 @@ const MyProfile = () => {
                                 <p>Linkdin Prifile: {detail.linkdin}</p>
                             </div>
                             <div className='mx-auto'>
-                                <label onClick={() => setEditPrifile(detail)} for="my-modal-6" class="btn btn-secondary modal-button modal-button">Edit Information</label>
+                                <label onClick={() => setEditPrifile(detail)} for="my-modal-6" class="font-bold text-white  btn btn-secondary modal-button modal-button mb-6">Edit Information</label>
                             </div>
                         </div>
 
@@ -66,7 +65,7 @@ const MyProfile = () => {
                 user={user}
             ></MyProfileInfo>
             <EditProfile
-
+                refetch={refetch}
             >
             </EditProfile>
         </div >

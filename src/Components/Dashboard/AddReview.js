@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 
@@ -15,9 +16,10 @@ const AddReview = () => {
             name: e.target.userName.value,
             email: e.target.userEmail.value,
             review: e.target.review.value,
+            rattings: e.target.rattings.value,
 
         }
-        fetch('https://gentle-headland-20307.herokuapp.com/review', {
+        fetch('http://localhost:5000/review', {
             "method": "POST",
             headers: {
                 'Content-type': 'application/json',
@@ -26,7 +28,7 @@ const AddReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('success review post', data)
+                toast('success review post')
             })
     }
 

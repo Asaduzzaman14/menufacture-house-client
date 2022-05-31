@@ -36,7 +36,7 @@ function App() {
         <Route path="/myProfileInfo" element={<MyProfileInfo></MyProfileInfo>}> </Route>
 
 
-        <Route path="/purchase/:id" element={<Purchase></Purchase>}> </Route>
+        <Route path="/purchase/:id" element={<RequirAuth><Purchase></Purchase></RequirAuth>}> </Route>
         <Route path="/about" element={<RequirAuth> <About></About></RequirAuth>}> </Route>
 
 

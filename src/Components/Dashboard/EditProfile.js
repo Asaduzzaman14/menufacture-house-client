@@ -3,9 +3,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
-const EditProfile = () => {
+const EditProfile = ({ refetch }) => {
     const [user] = useAuthState(auth)
-    const [modal, setModal] = useState(true)
+    const [modal, setModal] = useState(false)
 
     const handelUpdate = (e) => {
 
@@ -22,17 +22,19 @@ const EditProfile = () => {
 
         console.log(userInfo);
 
-        fetch(`https://gentle-headland-20307.herokuapp.com/userinfo${user?.emial}`, {
-            "method": "PUT",
+        fetch(`http://localhost:5000/userinfo/${user?.email}`, {
+            "method": "PATCH",
             headers: {
-                'Content-type': 'application/json',
+                "content-type": " application/json",
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(userInfo)
         })
             .then(res => res.json())
             .then(data => {
                 toast.success('success update user Information')
-                setModal(false)
+                setModal(true)
+                refetch()
             })
 
     }

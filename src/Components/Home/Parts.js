@@ -7,7 +7,7 @@ const Parts = () => {
     const [tools, setTools] = useState([])
 
     useEffect(() => {
-        fetch("https://gentle-headland-20307.herokuapp.com/parts", {
+        fetch("http://localhost:5000/parts", {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

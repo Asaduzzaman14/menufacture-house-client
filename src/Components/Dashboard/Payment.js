@@ -20,7 +20,7 @@ const Payment = () => {
 
 
 
-    const { data: order, isLoading, refetch } = useQuery('ordersPay', () => fetch(`https://gentle-headland-20307.herokuapp.com/payorder/${id}`, {
+    const { data: order, isLoading, refetch } = useQuery('ordersPay', () => fetch(`http://localhost:5000/payorder/${id}`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -37,18 +37,17 @@ const Payment = () => {
     console.log(order);
 
     return (
-        <div className='flex gap-5 m-8 mt-10'>
+        <div className=''>
 
 
-            <div className="card w-50 max-w-md bg-base-100 shadow-xl my-12 gap-7">
-                <div className="card w-50 max-w-md bg-base-100 shadow-xl">
-                    <div className="card-body">
-                        <h2 class="card-title">{order.name}</h2>
-                        <p>Price: ${order.quantity}</p>
-                        <p>quantity: {order.price}</p>
-                        <p>total: ${order.quantity * order.price}</p>
+            <div className="card w-50  bg-base-200 shadow-xl my-12 gap-5 p-5">
 
-                    </div>
+                <div className="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100 p-3">
+                    <h2 class="card-title mx-auto">{order.name}</h2>
+                    <img src={order?.img} alt="" />
+                    <p>Price: ${order.quantity}</p>
+                    <p>quantity: {order.price}</p>
+                    <p>total: ${order.quantity * order.price}</p>
                 </div>
 
 

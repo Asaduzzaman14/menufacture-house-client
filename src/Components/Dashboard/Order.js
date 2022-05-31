@@ -9,7 +9,7 @@ const Order = ({ order, index, setOrderDeleteId, refetch }) => {
 
 
 
-    const { name, _id, email, quantity, price } = order
+    const { name, _id, img, email, quantity, price, paid, transectionId } = order
     return (
 
         <>
@@ -21,9 +21,22 @@ const Order = ({ order, index, setOrderDeleteId, refetch }) => {
                 <td>{price}</td>
 
                 <td>
-                    {<Link to={`payment/${_id}`} className="btn btn-xs text-white bg-success">pay</Link>}
+                    {!paid && <>
+                        <Link to={`payment/${_id}`} className="btn btn-xs text-white bg-success">pay</Link>
+                        <label onClick={() => setOrderDeleteId(order)} for="my-modal-6" class="btn modal-button btn-xs text-error modal-button">Remove</label>
+                    </>
 
-                    <label onClick={() => setOrderDeleteId(order)} for="my-modal-6" class="btn modal-button btn-xs text-error modal-button">Remove</label>
+                    }
+
+                    {
+
+                        paid && <div>
+                            <p className="btn btn-xs text-white bg-warning">panding</p>
+                            <p>transection Id {transectionId} </p>
+                        </div>
+                    }
+
+
 
                 </td>
             </tr>

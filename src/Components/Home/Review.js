@@ -1,9 +1,10 @@
 import React from 'react';
+import { AiTwotoneStar } from 'react-icons/ai';
 
 
 const Review = ({ userReview }) => {
 
-    const { name, email, review } = userReview
+    const { name, email, review, rattings } = userReview
 
 
     return (
@@ -12,6 +13,10 @@ const Review = ({ userReview }) => {
                 <h2 className="card-title">{name}</h2>
                 <p>{email}</p>
                 <p>{review}</p>
+                <div class="rating justify-center">
+                    <span className=' mx-1'>{rattings}  </span>
+                    <input type="radio" name="rating-1" class="mask mask-star" />
+                </div>
                 <div className="card-actions justify-end">
                     <button className="btn btn-primary">Details</button>
                 </div>

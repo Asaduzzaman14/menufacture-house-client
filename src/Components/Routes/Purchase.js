@@ -15,7 +15,7 @@ const Purchase = () => {
 
     useEffect(() => {
 
-        const url = `https://gentle-headland-20307.herokuapp.com/tool/${id}`
+        const url = `http://localhost:5000/tool/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setService(data))
@@ -44,7 +44,7 @@ const Purchase = () => {
                 price: price
             };
             console.log(order);
-            fetch("https://gentle-headland-20307.herokuapp.com/order", {
+            fetch("http://localhost:5000/order", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
@@ -70,9 +70,9 @@ const Purchase = () => {
     }
     return (
 
-        <div className="card lg:card-side bg-orange-50 shadow-xl text-center my-6 w-[800px] mx-auto text-center">
-            <figure><img src={img} alt="Album" /></figure>
-            <div className="card-body">
+        <div className="card grid sm:grid-cols-1 lg:grid-cols-2 bg-orange-50 shadow-xl  my-6 w-[800px] mx-auto text-center">
+            <figure className='mx-auto'><img src={img} alt="Album" /></figure>
+            <div className="card-body mx-auto">
                 <h2 className="card-title">Name: {name}</h2>
                 <h4 className="card-title">Price: {price}</h4>
                 <h4 className="card-title">Minimum: {minOrderQuantity}</h4>
