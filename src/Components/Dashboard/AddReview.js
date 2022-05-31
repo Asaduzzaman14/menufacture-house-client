@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import { AiFillStar } from 'react-icons/ai';
+
 
 
 
 const AddReview = () => {
+    const [rating, setRating] = useState(null)
+    console.log(rating);
 
     const [user] = useAuthState(auth)
 
@@ -16,7 +20,7 @@ const AddReview = () => {
             name: e.target.userName.value,
             email: e.target.userEmail.value,
             review: e.target.review.value,
-            rattings: e.target.rattings.value,
+            rattings: rating,
 
         }
         fetch('http://localhost:5000/review', {
@@ -43,14 +47,30 @@ const AddReview = () => {
                     <br />
                     <input type="text" name='userEmail' value={user.email} className="input input-bordered input-md w-full max-w-sm mb-4" />
                     <br />
-                    <input type="number" name='rattings' placeholder='Ratting 1-5' className=" input input-bordered input-md w-full max-w-sm mb-4"
-                        min="1" max="5"
-                        required
-                    />
 
-                    <br />
                     <textarea name='review' className=" textarea textarea-primary w-full max-w-sm mb-6" placeholder="Your Review" required></textarea>
                     <br />
+
+                    <div className='flex justify-center'>
+                        {
+                            [...Array(Number(5))].map((star, i) => {
+                                const ratingValue = i + 1;
+
+                                return (
+                                    <label>
+                                        <input className='hidden' type="radio" name="rating" value={ratingValue} onClick={() => setRating(ratingValue)} />
+
+                                        <AiFillStar color={ratingValue <= (rating) ? '#ffc107' : '#e4e5e9'}
+                                            className='cursor-pointer transition-colors text-2xl text-yellow-600' />
+                                    </label>
+
+                                )
+                            })
+                        }
+                    </div>
+
+                    <br />
+
                     <input type="submit" value={'Add Review'} className="input bg-primary font-bold text-lg text-white input-bordered input-md w-full max-w-xs mb-4" />
 
                 </form>
