@@ -8,23 +8,21 @@ const MyPortfolio = () => {
 
             <div className='p-4 mx-auto text-center grid sm:grid-cols-1 lg:grid-cols-2 gap-5'>
 
-                <div className=''>
-                    {/* <div className="indicator w-32">
-                        <img src="https://i.ibb.co/jG50Bc6/portflio.jpg0" />
-                    </div> */}
 
-                    <div className="card text-justify w-100 bg-base-100 shadow-xl mx-auto  my-2">
-                        <div className="card-body">
-                            <h2 className="card-title">Name: <span className='text-purple-500'>ASADUZZAMAN</span></h2>
-                            <h2>Email: <spna className='text-purple-500'>asadasad9282@gmail.com</spna></h2>
-                            <h3>Educational Background:<br></br>
-                                <span className='text-orange-600'>Studies at B.S.S </span></h3>
-                            <p>List of Technology skills: <br></br>
-                                <span className='text-purple-600 font-bold'>React.js Developer || JavaScript Developer && MERN Stack Web Developer</span></p>
-                        </div>
+                <div className="card bg-blue-200 text-justify w-100 text-primary shadow-xl mx-auto  my-2">
+                    <div className="card-body">
+                        <h2 className="card-title">Name: <span>ASADUZZAMAN ASAD ,</span></h2>
+                        <h2 className='font-medium'>Email: <spna className=''>asadasad9282@gmail.com</spna></h2>
+                        <h3>Educational Background: <span >Studies at B.S.S </span>  </h3>
+                        <p className='font-bold'>List of Technology skills: <br>
+
+                        </br>
+                            <span className='font-bold'> jsvaScript, React, Node, Mongodb, Express, Next, firebase, Html, Css, bootstrap, Tailwind</span></p>
                     </div>
                 </div>
-                <div className="p-2 mockup-code w-full mx-auto text-center">
+
+
+                <div className="p-2 card bg-blue-200 w-full mx-auto text-center">
                     <h2>My React project Link</h2>
                     <a href='https://dentist-web-997b3.firebaseapp.com' className="link ">https://dentist-web-997b3.firebaseapp.com/</a>
                     <br />
