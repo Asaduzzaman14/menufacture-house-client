@@ -5,7 +5,7 @@ const RemoveTools = ({ removeTools, setRemoveTools, refetch }) => {
 
     const { _id } = removeTools
     const handelDeleteTool = () => {
-        fetch(`http://localhost:5000/  /${_id}`, {
+        fetch(`http://localhost:5000/deleteTols/${_id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

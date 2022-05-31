@@ -16,13 +16,13 @@ const Dashborad = () => {
                 <div className="drawer-content flex flex-col ">
 
                     {/* <!-- Page content here --> */}
-                    <h2 className='text-4xl text-cyan-600'>Welcome to Your  Dashboard</h2>
+                    <h2 className='text-4xl text-cyan-600 font-semibold py-2'>Welcome to Your  Dashboard</h2>
                     <Outlet></Outlet>
 
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
-                    <ul className="bg-secondary text-white  font-semibold menu p-4 overflow-y-auto w-48  font-serif ">
+                    <ul className="bg-blue-900  text-white  font-semibold menu p-4 overflow-y-auto w-48  font-serif ">
 
                         <li><Link to=''>Protfolio</Link></li>
 

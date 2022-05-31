@@ -26,10 +26,9 @@ const ManageTools = () => {
 
     return (
         <div>
-            <h2 className="text-2xl text-white bg-red-900">Manage All Tools</h2>
+            <h2 className="text-2xl text-white bg-red-900 py-5">Manage All Tools</h2>
 
             <div>
-                <h2 className="text-2xl">All tools:{tools?.length}</h2>
                 <div className="overflow-x-auto">
                     <table className="table w-full">
                         <thead>
