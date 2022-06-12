@@ -50,8 +50,8 @@ const VisitManufacturerHouse = () => {
                     visits.map(visit =>
                         <div >
 
-                            <div className="card  bg-base-100 shadow-2xl h-96">
-                                <figure><img className='rounded-lg w-100 h-72 p-4' src={visit.img} alt="Album" /></figure>
+                            <div className="card  bg-base-200 shadow-2xl h-96">
+                                <figure className='rounnded-lg'><img className='rounded-lg w-100 h-72 p-4' src={visit.img} alt="Album" /></figure>
                                 <div className="text-justify pl-10">
                                     <h2 className="card-title">New album is released!</h2>
                                     <p>{visit.desc.slice(0, 35)}</p>

@@ -9,13 +9,10 @@ const Review = ({ userReview }) => {
 
     return (
         <div className=" mt-2 card w-full bg-base-100 shadow-xl">
-            <div className="card-body">
-                <h2 className="card-title">{name}</h2>
-                <p>{email}</p>
+            <div className="card-body font-serif  shadow-slate-200 shadow-md">
+                <h2 className="card-title  text-gray-700">Name: {name}</h2>
+                <p className='text-gray-700 '>Email: {email}</p>
                 <p>{review}</p>
-
-
-
                 <div class="rating justify-center">
                     {/* <span className=' mx-1'>{rattings}  </span> */}
 
@@ -32,9 +29,9 @@ const Review = ({ userReview }) => {
 
 
 
-                <div className="card-actions justify-end">
+                {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Details</button>
-                </div>
+                </div> */}
             </div>
         </div>
     );

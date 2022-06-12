@@ -23,6 +23,10 @@ import ManageTools from './Components/Dashboard/ManageTools';
 import MyProfile from './Components/Dashboard/MyProfile';
 import MyProfileInfo from './Components/Dashboard/MyProfileInfo';
 import Payment from './Components/Dashboard/Payment';
+import Aos from 'aos';
+
+Aos.init();
+
 
 function App() {
   return (

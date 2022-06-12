@@ -11,14 +11,17 @@ const Card = ({ tool }) => {
             </figure>
             <div className="card-body items-center text-center">
                 <h3 className="card-title">Name: {name}</h3>
-                <p><span className='font-bold'>Description:</span> {desc}</p>
-                <p>Price: ${price}</p>
+                <p><span className='font-semibold'>Description:</span> <span className='text-gray text-gray-700 '> {desc}</span> </p>
 
-                <p>Available Quantity: {availableQuantity}</p>
-                <p>Min Order Quantity: {minOrderQuantity}</p>
-                <div className="card-actions">
-                    <Link to={`/purchase/${_id}`} className="btn btn-primary">Order</Link>
-                </div>
+                <p><span className='font-semibold'>Price:</span> <span className='text-gray text-gray-700 '>${price}</span> </p>
+                <p><span className='font-semibold'>Available Quantity:</span> <span className='text-gray text-gray-700 '>{availableQuantity}</span> </p>
+                <p><span className='font-semibold'>Min Order Quantity:</span> <span className='text-gray text-gray-700 '> {minOrderQuantity}</span> </p>
+
+                <Link to={`/purchase/${_id}`} class="px-8 py-2.5 relative rounded-lg group overflow-hidden font-medium bg-blue-200 text-blue-900 inline-block">
+                    <span class="absolute bottom-0 left-0 flex w-full h-0  transition-all duration-500 ease-out transform translate bg-blue-900 group-hover:h-full opacity-90"></span>
+                    <span class="relative group-hover:text-white">Purchase</span>
+                </Link>
+
             </div>
         </div>
     );
