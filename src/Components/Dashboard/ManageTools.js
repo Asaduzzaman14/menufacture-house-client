@@ -10,7 +10,7 @@ const ManageTools = () => {
     const [removeTools, setRemoveTools] = useState(null)
     console.log(removeTools);
 
-    const { data: tools, isLoading, refetch } = useQuery('manageTools', () => fetch('http://localhost:5000/parts', {
+    const { data: tools, isLoading, refetch } = useQuery('manageTools', () => fetch('https://gentle-headland-20307.herokuapp.com/parts', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -5,17 +5,18 @@ import ManageOrder from './ManageOrder';
 
 const ManageOrders = () => {
 
-    const { data: orders, isLoading, refetch } = useQuery('manageOrder', () => fetch('http://localhost:5000/manageOrders', {
+    const { data: orders, isLoading, refetch } = useQuery('manageOrder', () => fetch('https://gentle-headland-20307.herokuapp.com/manageOrders', {
         method: 'GET',
-        // headers: {
-        //     authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        // }
-
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
 
+        // headers: {
+        //     authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        // }
+
     }).then(res => res.json()));
+    console.log(orders);
 
     if (isLoading) {
         return <Loading></Loading>

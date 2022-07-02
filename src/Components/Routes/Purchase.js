@@ -15,7 +15,7 @@ const Purchase = () => {
 
     useEffect(() => {
 
-        const url = `http://localhost:5000/tool/${id}`
+        const url = `https://gentle-headland-20307.herokuapp.com/tool/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setService(data))
@@ -44,7 +44,7 @@ const Purchase = () => {
                 price: price
             };
             console.log(order);
-            fetch("http://localhost:5000/order", {
+            fetch("https://gentle-headland-20307.herokuapp.com/order", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
@@ -69,64 +69,76 @@ const Purchase = () => {
 
     }
     return (
+        <div className='bg-[#0d0e2f] text-gray-300 py-10 text-center mx-auto '>
 
-        <div className="card grid sm:grid-cols-1 lg:grid-cols-2 bg-orange-50 shadow-xl  my-6 w-[800px] mx-auto text-center">
-            <figure className='mx-auto'><img src={img} alt="Album" /></figure>
-            <div className="card-body mx-auto">
-                <h2 className="card-title">Name: {name}</h2>
-                <h4 className="card-title">Price: {price}</h4>
-                <h4 className="card-title">Minimum: {minOrderQuantity}</h4>
-                <h4 className="card-title">Available: {availableQuantity}</h4>
-                <p className="card-title"><small>Des: {desc}</small></p>
-                <h2 className='card-title text-purple-500 font-bold font-mono text-left'>User-name: {user?.displayName}</h2>
-                <h3 className='card-title text-purple-500 font-bold font-mono text-left'>User-email: {user?.email}</h3>
+            <div className=''>
 
-                <form onSubmit={handleOrder}>
-                    <input
-                        type="text"
-                        name="partsName"
-                        disabled
-                        value={name}
-                        className="input input-bordered w-full max-w-xs mb-2"
-                    />
-                    <br />
-                    <input
-                        placeholder='Quantity'
-                        value={minOrderQuantity?.value}
-                        type="number"
-                        name="number"
-                        className="input input-bordered w-full max-w-xs mb-2"
-                    />
-                    <br />
-                    <input
-                        type="email"
-                        name="email"
-                        disabled
-                        value={user?.email}
-                        placeholder="Type here"
-                        className="input input-bordered w-full max-w-xs mb-2 font-semibold"
-                    />
-                    <br />
-                    <input
-                        type="text"
-                        name="address"
-                        placeholder="Address"
-                        className="input input-bordered w-full max-w-xs mb-2"
-                    />
-                    <br />
-                    <input
-                        type="number"
-                        placeholder="Phone Number"
-                        className="input input-bordered w-full max-w-xs mb-2"
-                    />
-                    <br />
+                <img className='text-center mx-auto' src={img} alt="Album" />
+            </div>
 
-                    <input
-                        type="submit"
-                        value="Place Order"
-                        className="input input-bordered w-full max-w-xs btn btn-primary"
-                    />
-                </form>
+
+            <div className="card mb-5 grid grid-cols-1 lg:grid-cols-2 lg:px-20 shadow-xl my-6 mx-auto text-center ">
+                <div className="card-body mx-auto">
+                    <h2 className="card-title">Name: {name}</h2>
+                    <h4 className="card-title">Price: {price}</h4>
+                    <h4 className="card-title text-red-600">Minimum Order Quantity: {minOrderQuantity}</h4>
+                    <h4 className="card-title text-red-500 ">Available Quantity: {availableQuantity}</h4>
+                    <p className="card-title">Des: {desc}</p>
+                    <h2 className='card-title  font-bold font-mono text-left'>User-name: {user?.displayName}</h2>
+                    <h3 className='card-title  font-bold font-mono text-left'>User-email: {user?.email}</h3>
+
+
+                </div>
+
+                <div className='text-gray-700'>
+                    <form onSubmit={handleOrder}>
+                        <input
+                            type="text"
+                            name="partsName"
+                            disabled
+                            value={name}
+                            className="input input-bordered w-full max-w-xs mb-2"
+                        />
+                        <br />
+                        <input
+                            placeholder='Quantity'
+                            value={minOrderQuantity?.value}
+                            type="number"
+                            name="number"
+                            className="input input-bordered w-full max-w-xs mb-2"
+                        />
+                        <br />
+                        <input
+                            type="email"
+                            name="email"
+                            disabled
+                            value={user?.email}
+                            placeholder="Type here"
+                            className="input input-bordered w-full max-w-xs mb-2 font-semibold"
+                        />
+                        <br />
+                        <input
+                            type="text"
+                            name="address"
+                            placeholder="Address"
+                            className="input input-bordered w-full max-w-xs mb-2"
+                        />
+                        <br />
+                        <input
+                            type="number"
+                            placeholder="Phone Number"
+                            className="input input-bordered w-full max-w-xs mb-2"
+                        />
+                        <br />
+
+                        <input
+                            type="submit"
+                            value="Place Order"
+                            className="input input-bordered w-full max-w-xs btn btn-primary"
+                        />
+                    </form>
+                </div>
+
 
             </div>
         </div>

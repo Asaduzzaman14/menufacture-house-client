@@ -21,7 +21,7 @@ const CheckoutForm = ({ order }) => {
     const prices = { totalPrice }
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://gentle-headland-20307.herokuapp.com/create-payment-intent', {
             method: "POST",
             headers: {
                 "content-type": " application/json",
@@ -100,8 +100,8 @@ const CheckoutForm = ({ order }) => {
                 transectionId: paymentIntent.id
 
             }
-            console.log('1111111111111111', payment);
-            fetch(`http://localhost:5000/tool/${_id}`, {
+            console.log('1111111111111111', payment);  //ok
+            fetch(`https://gentle-headland-20307.herokuapp.com/tool/${_id}`, {
                 method: "PATCH",
                 headers: {
                     "content-type": " application/json",

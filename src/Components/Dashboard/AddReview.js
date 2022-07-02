@@ -23,7 +23,7 @@ const AddReview = () => {
             rattings: rating,
 
         }
-        fetch('http://localhost:5000/review', {
+        fetch('https://gentle-headland-20307.herokuapp.com/review', {
             "method": "POST",
             headers: {
                 'Content-type': 'application/json',

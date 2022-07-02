@@ -33,28 +33,26 @@ const VisitManufacturerHouse = () => {
             "desc": "Steel pipelines and cables in a plant"
         }
     ]
-    // https://i.ibb.co/yy0n3db/img4.webp
-    // 
-    // 
-    // 
-    // 
-    // 
-    // https://i.ibb.co/9pWJpj7/Steel-pipelines-and-cables-in-a-plant.webp
+
 
     return (
-        <div className=' bg-green-200 mt-10 py-10'>
-            <h2 className="text-4xl py-8  text-bold">Visit Our Manufacturer House</h2>
+        <div className=' bg-[#d5d9db] mt-10 py-10'>
+            <h2 className="text-2xl py-8 text-red-800 font-serif text-bold lg:text-3xl">Visit Our Manufacturer House</h2>
 
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 p-5'>
+            <div className=' grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-10'>
                 {
                     visits.map(visit =>
-                        <div >
+                        <div className='rounded-2xl mx-auto transition shadow-md shadow-red-800 hover:translate-y-4 duration-500 hover:bg-gray-100 hover:text-gray-800'>
 
-                            <div className="card  bg-base-200 shadow-2xl h-96">
-                                <figure className='rounnded-lg'><img className='rounded-lg w-100 h-72 p-4' src={visit.img} alt="Album" /></figure>
+                            <div className=" rounded-xl  w-80 shadow-2xl h-96">
+                                <div className='px-5 pt-4'>
+
+                                    <img className='rounded-2xl w-100 h-72 ' src={visit.img} alt="Album" />
+                                </div>
+
                                 <div className="text-justify pl-10">
                                     <h2 className="card-title">New album is released!</h2>
-                                    <p>{visit.desc.slice(0, 35)}</p>
+                                    <p className='font-serif '>{visit.desc.slice(0, 35)}</p>
 
                                 </div>
                             </div>

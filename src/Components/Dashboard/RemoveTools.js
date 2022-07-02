@@ -5,7 +5,7 @@ const RemoveTools = ({ removeTools, setRemoveTools, refetch }) => {
 
     const { _id } = removeTools
     const handelDeleteTool = () => {
-        fetch(`http://localhost:5000/deleteTols/${_id}`, {
+        fetch(`https://gentle-headland-20307.herokuapp.com/deleteTols/${_id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

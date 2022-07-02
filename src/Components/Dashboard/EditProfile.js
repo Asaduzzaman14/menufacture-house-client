@@ -22,7 +22,7 @@ const EditProfile = ({ refetch }) => {
 
         console.log(userInfo);
 
-        fetch(`http://localhost:5000/userinfo/${user?.email}`, {
+        fetch(`https://gentle-headland-20307.herokuapp.com/userinfo/${user?.email}`, {
             "method": "PATCH",
             headers: {
                 "content-type": " application/json",

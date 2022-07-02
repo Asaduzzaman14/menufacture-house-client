@@ -15,7 +15,7 @@ const MyProfile = () => {
     const [editPrifile, setEditPrifile] = useState()
 
 
-    const { data: userDetail, isLoading, refetch } = useQuery('details', () => fetch(`http://localhost:5000/profilrdetail/${user?.email}`, {
+    const { data: userDetail, isLoading, refetch } = useQuery('details', () => fetch(`https://gentle-headland-20307.herokuapp.com/profilrdetail/${user?.email}`, {
         method: 'GET',
 
     }).then(res => res.json()));

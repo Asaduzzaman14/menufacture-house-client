@@ -39,15 +39,15 @@ const Summery = () => {
 
 
     return (
-        <div className='bg-cyan-100 pb-20'>
-            <h2 className=' mt-14 text-3xl p-4 '>Buisness Summery</h2>
+        <div className='bg-neutral pb-20'>
+            <h2 className=' mt-14 text-3xl p-4 text-red-500'>Buisness Summery</h2>
             <div className=" ">
 
+                <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  px-20 gap-10'>  {
+                    BuisnessSummery.map(summery => {
+                        return <div className='stats stats-vertical  shadow w-50 '>
 
-                <div className='stats stats-vertical lg:stats-horizontal shadow w-50 '>
-                    {
-                        BuisnessSummery.map(summery => {
-                            return <div className="stat ">
+                            <div className="stat ">
                                 <div className="stat-title">{summery.title}</div>
                                 <div class="avatar">
                                     <div class="w-16 rounded">
@@ -56,10 +56,12 @@ const Summery = () => {
                                 </div>                                <div className="stat-value"><CountUp end={summery.value} /> </div>
                                 <div className="stat-desc">↗︎ 400 (22%)</div>
                             </div>
-                        })
-                    }
-                </div>
+                        </div>
 
+                    })
+                }
+
+                </div>
                 {/* <div className="stat">
                     <div className="stat-title">Downloads</div>
                     <div className="stat-value"><CountUp end={2150} />  </div>
