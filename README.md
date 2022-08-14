@@ -36,4 +36,4 @@
 
 * For look and style, I have used tailwind css framework, daisyui, toastify, google font, react-hook-form
 
-* This is a full stack MERN full interactive website.
+* This is a full stack MERN  interactive website.
